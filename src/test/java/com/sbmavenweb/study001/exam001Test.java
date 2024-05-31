@@ -52,4 +52,22 @@ public class exam001Test {
         });
         System.out.println(exception.toString());
     }
+
+    @Test
+    public void equals001() throws Exception {
+        //given
+        MathExam math = new MathExam();
+        //when
+        //then
+        assertThat(-1).isEqualTo(math.mathTest003(2, 3));
+        assertThat(1).isEqualTo(math.mathTest003(11, 11));
+        assertThat(-1).isEqualTo(math.mathTest003(7, 99));
+        // Exception 예외가 발생해야지만 정상 동작으로 인식한다.
+        assertThatThrownBy(() -> math.mathTest003(55555, 3)).isInstanceOf(Exception.class);
+        //RuntimeException 예외가 발생해야지만 정상 동작으로 인식한다.
+        Throwable exception = assertThrows(Exception.class, () -> {
+            math.mathTest003(3622, -1);
+        });
+        System.out.println(exception.toString());
+    }
 }

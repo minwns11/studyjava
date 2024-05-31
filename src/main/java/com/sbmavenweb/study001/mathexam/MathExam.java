@@ -20,14 +20,16 @@ public class MathExam {
         }
         return n1 * n2;
     }
+
     public int mathTest003(int n1, int n2) throws Exception {
-        if (n1 <= 0 || n1 >= 100) {
-            throw new Exception("num1 값은 0보다 작거나, num1 값은 100보다 큽니다..");
+        if (n1 <= 0 || n1 >= 10000) {
+            throw new Exception("num1 값은 0 ~ 10,000 사이로 입력하세요..");
         }
-        if (n2 <= 0 || n2 >= 100) {
-            throw new Exception("num2 값은 0보다 작거나, num2 값은 100보다 큽니다..");
+        if (n2 <= 0 || n2 >= 10000) {
+            throw new Exception("num2 값은 0 ~ 10,000 사이로 입력하세요..");
         }
-        return n1 * n2;
+        if (n1 == n2) return 1;
+        else return -1;
     }
 }
 
