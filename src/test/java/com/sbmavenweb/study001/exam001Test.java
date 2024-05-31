@@ -27,11 +27,13 @@ public class exam001Test {
         assertThat(0).isLessThan(math.subTest001(100, 70)); // 값:30 0이하 시 잡음
         // Exception 에외가 발생해야지만 정상 동작으로 인식한다.
         assertThatThrownBy(() -> math.subTest001(70000, 7))
-                .isInstanceOf(Exception.class);
+                .isInstanceOf(Exception.class); // 타입비교(데이터 형식)
         //RuntimeException 예외가 발생해야지만 정상 동작으로 인식한다.
-        Throwable exception = assertThrows(RuntimeException.class, () -> {
-            math.subTest001(2330, 50002);
+        // 이 값이 예외로 나갈 것이라 예상된다.
+        Throwable exception = assertThrows(RuntimeException.class, () -> { // throw 를 검정함
+            math.subTest001(77, 77777);
         });
+        if ( exception instanceof RuntimeException ) {}
         System.out.println(exception.toString());
     }
 
