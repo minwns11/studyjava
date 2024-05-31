@@ -16,7 +16,7 @@ public class MathExam {
             throw new Exception("num1 값은 0보다 작거나, num1 값은 100보다 큽니다..");
         }
         if (n2 <= 0 || n2 >= 100) {
-            throw new Exception("num2 값은 0보다 작거나, num2 값은 100보다 큽니다..");
+            throw new RuntimeException("num2 값은 0보다 작거나, num2 값은 100보다 큽니다..");
         }
         return n1 * n2;
     }
@@ -26,7 +26,7 @@ public class MathExam {
             throw new Exception("num1 값은 0 ~ 10,000 사이로 입력하세요..");
         }
         if (n2 <= 0 || n2 >= 10000) {
-            throw new Exception("num2 값은 0 ~ 10,000 사이로 입력하세요..");
+            throw new RuntimeException("num2 값은 0 ~ 10,000 사이로 입력하세요..");
         }
         if (n1 == n2) return 1;
         else return -1;

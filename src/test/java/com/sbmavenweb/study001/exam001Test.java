@@ -47,7 +47,7 @@ public class exam001Test {
         assertThatThrownBy(() -> math.mathTest002(-1, 10))
                 .isInstanceOf(Exception.class);
         //RuntimeException 예외가 발생해야지만 정상 동작으로 인식한다.
-        Throwable exception = assertThrows(Exception.class, () -> {
+        Throwable exception = assertThrows(RuntimeException.class, () -> {
             math.mathTest002(10, 101);
         });
         System.out.println(exception.toString());
@@ -65,7 +65,7 @@ public class exam001Test {
         // Exception 예외가 발생해야지만 정상 동작으로 인식한다.
         assertThatThrownBy(() -> math.mathTest003(55555, 3)).isInstanceOf(Exception.class);
         //RuntimeException 예외가 발생해야지만 정상 동작으로 인식한다.
-        Throwable exception = assertThrows(Exception.class, () -> {
+        Throwable exception = assertThrows(RuntimeException.class, () -> {
             math.mathTest003(3622, -1);
         });
         System.out.println(exception.toString());
