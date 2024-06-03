@@ -69,5 +69,50 @@ public class MathExam {
             return 4;
         } else throw new Exception("1~180 도 사이 여야 합니다.");
     }
+
+    public int exam120831(int n) throws Exception {
+        if (n < 0 || n > 1000) {
+            throw new Exception("0 ~ 1000 사이로 입력하세요..");
+        }
+        int evensum = 0;
+        for (int i=0;i<=n;i+=2) {
+               evensum += i;
+       }
+       return evensum;
+    }
+
+    public int[] exam120813(int n) throws Exception {
+        if (n < 0 || n > 100) {
+            throw new Exception("0 ~ 100 사이로 입력하세요..");
+        }
+        int[] result = new int[(n+1)/2];
+
+        int o = 0;
+        for (int i=1;i<=n;i+=2) {
+            result[o] += i;
+            o ++;
+        }
+        return result;
+    }
+
+    public int exam120583(int[] array, int n) throws Exception {
+        if (array.length < 0 || array.length > 100) {
+            throw new Exception("array 0 ~ 100 사이로 입력하세요..");
+        }
+        if (n < 0 || n > 1000) {
+            throw new Exception("0 ~ 1000 사이로 입력하세요..");
+        }
+        int result = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < 0 || array[i] > 1000) {
+                throw new Exception("array[%d] 값은 0~1000 사이 여야 합니다.");
+            }
+            if (array[i] == n) {
+                result += 1;
+            }
+        }
+        return result;
+    }
+
 }
 
