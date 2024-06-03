@@ -20,11 +20,11 @@ public class exam001Test {
         //} catch (Exception ex) { }
 
         // then         실제값과 기대값을 비교해서 테스트한다.
-        assertThat(-1).isEqualTo(math.subTest001(2, 3)); //값:-1 값이 -1일 시 넘김
-        assertThat(98).isEqualTo(math.subTest001(100, 2));
-        assertThat(7).isEqualTo(math.subTest001(10, 3));
-        assertThat(10).isNotEqualTo(math.subTest001(100, 70)); //값:30 값이 10일 시 잡음
-        assertThat(0).isLessThan(math.subTest001(100, 70)); // 값:30 0이하 시 잡음
+        assertThat(math.subTest001(2, 3)).isEqualTo(-1); //값:-1 값이 -1일 시 넘김
+        assertThat(math.subTest001(100, 2)).isEqualTo(98);
+        assertThat(math.subTest001(11, 4)).isEqualTo(7);
+        assertThat(math.subTest001(100, 70)).isNotEqualTo(10); //값:30 값이 10일 시 잡음
+        assertThat(math.subTest001(100, 70)).isLessThan(31); // 값:30 0이하 시 잡음
         // Exception 에외가 발생해야지만 정상 동작으로 인식한다.
         assertThatThrownBy(() -> math.subTest001(70000, 7))
                 .isInstanceOf(Exception.class); // 타입비교(데이터 형식)
@@ -43,8 +43,8 @@ public class exam001Test {
         MathExam math = new MathExam();
         //when
         //then
-        assertThat(12).isEqualTo(math.mathTest002(3, 4));
-        assertThat(513).isEqualTo(math.mathTest002(27, 19));
+        assertThat(math.mathTest002(3, 4)).isEqualTo(12);
+        assertThat(math.mathTest002(27, 19)).isEqualTo(513);
         // Exception 에외가 발생해야지만 정상 동작으로 인식한다.
         assertThatThrownBy(() -> math.mathTest002(-1, 10))
                 .isInstanceOf(Exception.class);
@@ -61,9 +61,9 @@ public class exam001Test {
         MathExam math = new MathExam();
         //when
         //then
-        assertThat(-1).isEqualTo(math.mathTest003(2, 3));
-        assertThat(1).isEqualTo(math.mathTest003(11, 11));
-        assertThat(-1).isEqualTo(math.mathTest003(7, 99));
+        assertThat(math.mathTest003(2, 3)).isEqualTo(-1);
+        assertThat(math.mathTest003(11, 11)).isEqualTo(1);
+        assertThat(math.mathTest003(7, 99)).isEqualTo(-1);
         // Exception 예외가 발생해야지만 정상 동작으로 인식한다.
         assertThatThrownBy(() -> math.mathTest003(55555, 3)).isInstanceOf(Exception.class);
         //RuntimeException 예외가 발생해야지만 정상 동작으로 인식한다.
@@ -71,5 +71,25 @@ public class exam001Test {
             math.mathTest003(3622, -1);
         });
         System.out.println(exception.toString());
+    }
+
+    @Test
+    public void exam120817() throws Exception {
+        MathExam math = new MathExam();
+        int[] numbers = {1, 2, 3, 4, 5, 6 ,7, 8, 9, 10};
+        assertThat(math.exam120817(numbers)).isEqualTo(5.5);
+        assertThat(math.exam120817(new int[] {89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99})).isEqualTo(94.0);
+        assertThatThrownBy(() ->math.exam120817(new int[] {0, 1000, 2000}))
+                .isInstanceOf(Exception.class);
+        assertThatThrownBy(() ->math.exam120817(new int[] {}))
+                .isInstanceOf(Exception.class);
+        Throwable exception = assertThrows(Exception.class, () -> math.exam120817(new int[] {}));
+        System.out.println(exception.toString());
+    }
+
+    @Test
+    public void exam120829() throws Exception {
+        MathExam math = new MathExam();
+
     }
 }

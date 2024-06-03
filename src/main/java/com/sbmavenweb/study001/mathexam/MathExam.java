@@ -31,5 +31,23 @@ public class MathExam {
         if (n1 == n2) return 1;
         else return -1;
     }
+
+    public double exam120817(int[] numbers) throws Exception {
+        if (numbers == null ) {
+            throw new Exception("numbers 는 null 이 아니여야 합니다.");
+        }
+        if (numbers.length < 1 || numbers.length > 100) {
+            throw new Exception("numbers 배열 크기는 1~100 사이 여야 합니다.");
+        }
+        int sum = 0;
+        for (int i=0; i<numbers.length; i++) {
+            if (numbers[i] < 0 || numbers[i] > 1000) {
+                throw new Exception("numbers[%d] 값은 0~1000 사이 여야 합니다.");
+            } else {
+                sum += numbers[i];
+            }
+        }
+        return (double)sum/numbers.length;
+    }
 }
 
