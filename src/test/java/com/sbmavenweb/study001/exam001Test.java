@@ -7,7 +7,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 public class exam001Test {
     @Test
-    public void subtract001() throws Exception {
+    public void exam120803() throws Exception {
         MathExam math = new MathExam();
         // given        테스트 하기 위한 준비 동작
         // int num1 = 2;
@@ -38,7 +38,7 @@ public class exam001Test {
     }
 
     @Test
-    public void multiply001() throws Exception {
+    public void exam120804() throws Exception {
         //given
         MathExam math = new MathExam();
         //when
@@ -56,7 +56,7 @@ public class exam001Test {
     }
 
     @Test
-    public void equals001() throws Exception {
+    public void exam120807() throws Exception {
         //given
         MathExam math = new MathExam();
         //when
@@ -88,8 +88,24 @@ public class exam001Test {
     }
 
     @Test
+    public void exam120820() throws Exception {
+        MathExam math = new MathExam();
+        assertThat(math.exam120820(40)).isEqualTo(1983);
+        assertThat(math.exam120820(23)).isEqualTo(2000);
+        assertThatThrownBy(() ->math.exam120820(121))
+                .isInstanceOf(Exception.class);
+        assertThatThrownBy(() ->math.exam120820(-1))
+                .isInstanceOf(Exception.class);
+    }
+
+    @Test
     public void exam120829() throws Exception {
         MathExam math = new MathExam();
-
+        assertThat(math.exam120829(70)).isEqualTo(1);
+        assertThat(math.exam120829(90)).isEqualTo(2);
+        assertThat(math.exam120829(91)).isEqualTo(3);
+        assertThat(math.exam120829(180)).isEqualTo(4);
+        assertThatThrownBy(() ->math.exam120829(181))
+                .isInstanceOf(Exception.class);
     }
 }
