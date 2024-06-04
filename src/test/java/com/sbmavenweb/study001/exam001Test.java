@@ -4,6 +4,7 @@ import com.sbmavenweb.study001.mathexam.MathExam;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertLinesMatch;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 public class exam001Test {
     @Test
@@ -198,6 +199,29 @@ public class exam001Test {
         assertThatThrownBy(() -> math.exam120893((int[]) null))
                 .isInstanceOf(Exception.class);
         assertThatThrownBy(() -> math.exam120893(new int[]{1001}))
+                .isInstanceOf(Exception.class);
+    }
+
+    @Test
+    public void exam120899() throws Exception {
+        MathExam math = new MathExam();
+        assertThat(math.exam120899(new int[]{1, 8, 3})).isEqualTo(new int[]{8, 1});
+        assertThat(math.exam120899(new int[]{9, 10, 11, 8})).isEqualTo(new int[]{11, 2});
+        assertThatThrownBy(() -> math.exam120899((int[]) null))
+                .isInstanceOf(Exception.class);
+        assertThatThrownBy(() -> math.exam120899(new int[]{1001}))
+                .isInstanceOf(Exception.class);
+    }
+
+    @Test
+    public void exam120889() throws Exception {
+        MathExam math = new MathExam();
+        assertThat(math.exam120889(new int[]{1, 2, 3})).isEqualTo(2);
+        assertThat(math.exam120889(new int[]{3, 6, 2})).isEqualTo(2);
+        assertThat(math.exam120889(new int[]{199, 72, 222})).isEqualTo(1);
+        assertThatThrownBy(() -> math.exam120889((int[]) null))
+                .isInstanceOf(Exception.class);
+        assertThatThrownBy(() -> math.exam120889(new int[]{1001}))
                 .isInstanceOf(Exception.class);
     }
 }

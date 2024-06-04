@@ -1,7 +1,5 @@
 package com.sbmavenweb.study001.mathexam;
 
-import static java.rmi.Naming.list;
-
 public class MathExam {
     public int subTest001(int n1, int n2) throws Exception {
         if (n1 < -50000 || n1 > 50000) {
@@ -89,10 +87,10 @@ public class MathExam {
         }
         int[] result = new int[(n + 1) / 2];
 
-        int o = 0;
+        int t = 0;
         for (int i = 1; i <= n; i += 2) {
-            result[o] += i;
-            o++;
+            result[t] += i;
+            t++;
         }
         return result;
     }
@@ -233,5 +231,59 @@ public class MathExam {
             }
         }
         return result;
+    }
+
+    public int[] exam120899(int[] array) throws Exception {
+        if (array == null) {
+            throw new Exception("array는 null 이 아니어야 합니다..");
+        }
+        if (array.length > 100) {
+            throw new Exception("array의 길이는 1~100 입니다.");
+        }
+        int[] result = new int[2];
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > 1000) {
+                throw new Exception("array[%s]는 1000이 넘어갈 수 없습니다.");
+            }
+            if (array[i] > result[0]) {
+                result[0] = array[i];
+                result[1] = i;
+            }
+        }
+        return result;
+    }
+    public int exam120889(int[] sides) throws Exception {
+        if (sides == null) {
+            throw new Exception("array는 null 이 아니어야 합니다..");
+        }
+        if (sides.length != 3) {
+            throw new Exception("array의 길이는 1~100 입니다.");
+        }
+        int Max = 0;
+        int NUMs = 0;
+        int result = 1;
+        for (int i = 0; i < sides.length; i++) {
+            if (sides[i] > 1000) {
+                throw new Exception("array[%s]는 1000이 넘어갈 수 없습니다.");
+            }
+            if (sides[i] > Max) {
+                Max = sides[i];
+            }
+            NUMs += sides[i];
+        }
+        if (Max < NUMs-Max) {
+            return 1;
+        } else return 2;
+/**
+ public String[] exam120903(String[] s1, String[] s2) throws Exception {
+ if (s1 == null || s2 == null) {
+ throw new Exception("값이 null 이 아니어야 합니다..");
+ }
+ if (num_list.length > 100) {
+ throw new Exception("num_list의 길이는 1~100 입니다.");
+ }
+ return s1;
+ }
+ **/
     }
 }
