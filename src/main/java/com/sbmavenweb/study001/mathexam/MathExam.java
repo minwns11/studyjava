@@ -96,7 +96,7 @@ public class MathExam {
     }
 
     public int exam120583(int[] array, int n) throws Exception {
-        if (array.length < 0 || array.length > 100) {
+        if (array.length > 100) {
             throw new Exception("array 0 ~ 100 사이로 입력하세요..");
         }
         if (n < 0 || n > 1000) {
@@ -111,6 +111,39 @@ public class MathExam {
                 result += 1;
             }
         }
+        return result;
+    }
+
+    public int exam120585(int[] array, int height) throws Exception {
+        if (array.length > 100) {
+            throw new Exception("array는 0 ~ 100 사이로 입력하세요..");
+        }
+        if (height < 0 || height > 200) {
+            throw new Exception("height는 0 ~ 200 사이로 입력하세요..");
+        }
+        int result = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < 0 || array[i] > 200) {
+                throw new Exception("array[%d] 값은 0~200 사이 여야 합니다.");
+            }
+            if (array[i] > height) {
+                result += 1;
+            }
+        }
+        return result;
+    }
+
+    public int exam120837(double hp) throws Exception {
+        if (hp%1>0) {
+            throw new Exception("hp는 자연수입니다.");
+        }
+        if (hp<0||hp>1000) {
+            throw new Exception("hp는 0~1000 입니다.");
+        }
+        int health = (int)hp;
+        int result = health/5;
+        result += (health%5)/3;
+        result += (health%5)%3;
         return result;
     }
 
