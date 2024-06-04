@@ -146,6 +146,9 @@ public class MathExam {
         result += (health%5)%3;
         return result;
     }
+    public int exam120818(int price) throws Exception {
+        return 0;
+    }
 
 }
 
