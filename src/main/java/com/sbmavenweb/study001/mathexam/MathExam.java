@@ -1,5 +1,7 @@
 package com.sbmavenweb.study001.mathexam;
 
+import static java.rmi.Naming.list;
+
 public class MathExam {
     public int subTest001(int n1, int n2) throws Exception {
         if (n1 < -50000 || n1 > 50000) {
@@ -33,21 +35,21 @@ public class MathExam {
     }
 
     public double exam120817(int[] numbers) throws Exception {
-        if (numbers == null ) {
+        if (numbers == null) {
             throw new Exception("numbers 는 null 이 아니여야 합니다.");
         }
         if (numbers.length < 1 || numbers.length > 100) {
             throw new Exception("numbers 배열 크기는 1~100 사이 여야 합니다.");
         }
         int sum = 0;
-        for (int i=0; i<numbers.length; i++) {
+        for (int i = 0; i < numbers.length; i++) {
             if (numbers[i] < 0 || numbers[i] > 1000) {
                 throw new Exception("numbers[%d] 값은 0~1000 사이 여야 합니다.");
             } else {
                 sum += numbers[i];
             }
         }
-        return (double)sum/numbers.length;
+        return (double) sum / numbers.length;
     }
 
     public int exam120820(int age) throws Exception {
@@ -55,7 +57,7 @@ public class MathExam {
         if (age < 0 || age >= 120) {
             throw new Exception("1~120세 까지 가능합니다.");
         }
-        return year-(age-1);
+        return year - (age - 1);
     }
 
     public int exam120829(int angle) throws Exception {
@@ -75,22 +77,22 @@ public class MathExam {
             throw new Exception("0 ~ 1000 사이로 입력하세요..");
         }
         int evensum = 0;
-        for (int i=0;i<=n;i+=2) {
-               evensum += i;
-       }
-       return evensum;
+        for (int i = 0; i <= n; i += 2) {
+            evensum += i;
+        }
+        return evensum;
     }
 
     public int[] exam120813(int n) throws Exception {
         if (n < 0 || n > 100) {
             throw new Exception("0 ~ 100 사이로 입력하세요..");
         }
-        int[] result = new int[(n+1)/2];
+        int[] result = new int[(n + 1) / 2];
 
         int o = 0;
-        for (int i=1;i<=n;i+=2) {
+        for (int i = 1; i <= n; i += 2) {
             result[o] += i;
-            o ++;
+            o++;
         }
         return result;
     }
@@ -137,7 +139,7 @@ public class MathExam {
         if (price <= 10 || price >= 1000000) {
             throw new Exception("10 ~ 1000000 사이로 입력하세요..");
         }
-        price = (price/10)*10;
+        price = (price / 10) * 10;
         int result = 0;
         if (price >= 500000) {
             result = price * 80 / 100;
@@ -152,18 +154,84 @@ public class MathExam {
     }
 
     public int exam120837(double hp) throws Exception {
-        if (hp%1>0) {
+        if (hp % 1 > 0) {
             throw new Exception("hp는 자연수입니다.");
         }
-        if (hp<0||hp>1000) {
-            throw new Exception("hp는 0~1000 입니다.");
+        if (hp <= 0 || hp > 1000) {
+            throw new Exception("hp는 1~1000 입니다.");
         }
-        int health = (int)hp;
-        int result = health/5;
-        result += (health%5)/3;
-        result += (health%5)%3;
+        int health = (int) hp;
+        int result = health / 5;
+        result += (health % 5) / 3;
+        result += (health % 5) % 3;
         return result;
     }
 
-}
+    public String exam120839(String rsp) throws Exception {
+        if (rsp == null) {
+            throw new Exception("rsp는 null 이 아니어야 합니다..");
+        }
+        if (rsp.length() <= 0 || rsp.length() > 100) {
+            throw new Exception("rsp의 길이는 1~100 입니다.");
+        }
+        String result = "";
+        for (int i = 0; i < rsp.length(); i++) {
+            char ch = rsp.charAt(i);
+            if (ch == '2') {
+                result += "0";
+            } else if (ch == '0') {
+                result += "5";
+            } else if (ch == '5') {
+                result += "2";
+            } else {
+                throw new Exception("rsp에 '0', '2', '5'만 넣어주세요..");
+            }
+        }
+        return result;
+    }
 
+    public String exam120893(String my_string) throws Exception {
+        if (my_string == null) {
+            throw new Exception("rsp는 null 이 아니어야 합니다..");
+        }
+        if (my_string.length() > 1000) {
+            throw new Exception("my_string의 길이는 1~1000 입니다.");
+        }
+        int tmp;
+        String result = "";
+        for (int i = 0; i < my_string.length(); i++) {
+            tmp = (int) my_string.charAt(i);
+            if ((65 <= tmp) && (tmp <= 90)) {    //문자가 65 <= tmp <= 90인 경우 (대문자인 경우)
+                result += (char) (tmp + 32);    //32를 더해서 소문자로 변환
+            } else if ((97 <= tmp) && (tmp <= 122)) { //문자가 97 <= tmp <= 122인 경우 (소문자인 경우)
+                result += (char) (tmp - 32);    //32를 빼서 대문자로 변환
+            } else {
+                result += (char) tmp;
+            }
+        }
+        return result;
+    }
+
+    public int[] exam120893(int[] num_list) throws Exception {
+        if (num_list == null) {
+            throw new Exception("num_list는 null 이 아니어야 합니다..");
+        }
+        if (num_list.length > 100) {
+            throw new Exception("num_list의 길이는 1~100 입니다.");
+        }
+        int[] result = new int[]{0, 0};
+        for (int i = 0; i < num_list.length; i++) {
+            if (num_list[i] > 1000) {
+                throw new Exception("num_list[%s]는 1000이 넘어갈 수 없습니다.");
+            }
+            if (num_list[i] % 2 == 0) {
+                result[0] = result[0] + 1;
+            } else if (num_list[i] % 2 == 1) {
+                result[1] = result[1] + 1;
+            } else {
+                throw new Exception("num_list[%s]는 정수만 입력하세요..");
+            }
+        }
+        return result;
+    }
+}

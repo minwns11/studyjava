@@ -152,9 +152,52 @@ public class exam001Test {
         assertThat(math.exam120818(101)).isEqualTo(100);
         assertThat(math.exam120818(150000)).isEqualTo(142500);
         assertThat(math.exam120818(580000)).isEqualTo(464000);
-        assertThatThrownBy(() ->math.exam120818(1000001))
+        assertThatThrownBy(() -> math.exam120818(1000001))
                 .isInstanceOf(Exception.class);
-        assertThatThrownBy(() ->math.exam120818(0))
+        assertThatThrownBy(() -> math.exam120818(0))
+                .isInstanceOf(Exception.class);
+    }
+
+    @Test
+    public void exam120837() throws Exception {
+        MathExam math = new MathExam();
+        assertThat(math.exam120837(23)).isEqualTo(5);
+        assertThat(math.exam120837(24)).isEqualTo(6);
+        assertThat(math.exam120837(999)).isEqualTo(201);
+        assertThatThrownBy(() -> math.exam120837(-1))
+                .isInstanceOf(Exception.class);
+        assertThatThrownBy(() -> math.exam120837(1001))
+                .isInstanceOf(Exception.class);
+    }
+
+    @Test
+    public void exam120839() throws Exception {
+        MathExam math = new MathExam();
+        assertThat(math.exam120839("2")).isEqualTo("0");
+        assertThat(math.exam120839("205")).isEqualTo("052");
+        assertThatThrownBy(() -> math.exam120839(""))
+                .isInstanceOf(Exception.class);
+        assertThatThrownBy(() -> math.exam120839("3"))
+                .isInstanceOf(Exception.class);
+    }
+
+    @Test
+    public void exam120893() throws Exception {
+        MathExam math = new MathExam();
+        assertThat(math.exam120893("cccCCC")).isEqualTo("CCCccc");
+        assertThat(math.exam120893("abCdEfghIJ")).isEqualTo("ABcDeFGHij");
+        assertThatThrownBy(() -> math.exam120839(""))
+                .isInstanceOf(Exception.class);
+    }
+
+    @Test
+    public void exam120824() throws Exception {
+        MathExam math = new MathExam();
+        assertThat(math.exam120893(new int[]{1, 2, 3, 4, 5})).isEqualTo(new int[]{2, 3});
+        assertThat(math.exam120893(new int[]{1, 3, 5, 7})).isEqualTo(new int[]{0, 4});
+        assertThatThrownBy(() -> math.exam120893((int[]) null))
+                .isInstanceOf(Exception.class);
+        assertThatThrownBy(() -> math.exam120893(new int[]{1001}))
                 .isInstanceOf(Exception.class);
     }
 }
