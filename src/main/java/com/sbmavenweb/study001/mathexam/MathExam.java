@@ -147,7 +147,21 @@ public class MathExam {
         return result;
     }
     public int exam120818(int price) throws Exception {
-        return 0;
+        if (price <= 0 || price >= 1000000) {
+            throw new Exception("10 ~ 1000000 사이로 입력하세요..");
+        }
+        price = (price/10)*10;
+        int result = 0;
+        if (price >= 500000) {
+            result = price * 100 / 80;
+        } else if (price >= 300000) {
+            result = price * 100 / 90;
+        } else if (price >= 100000) {
+            result = price * 100 / 95;
+        } else {
+            result = price;
+        }
+        return result;
     }
 
 }

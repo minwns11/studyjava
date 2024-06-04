@@ -158,4 +158,13 @@ public class exam001Test {
                 .isInstanceOf(Exception.class);
 
     }
+
+    @Test
+    public void exam120818() throws Exception {
+        MathExam math = new MathExam();
+        assertThat(math.exam120818(150000)).isEqualTo(142500);
+        assertThat(math.exam120818(580000)).isEqualTo(464000);
+        assertThatThrownBy(() ->math.exam120818(1000001))
+                .isInstanceOf(Exception.class);
+    }
 }
