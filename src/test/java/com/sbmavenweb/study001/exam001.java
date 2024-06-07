@@ -6,7 +6,8 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertLinesMatch;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-public class exam001Test {
+
+public class exam001 {
     @Test
     public void exam120803() throws Exception {
         MathExam math = new MathExam();
@@ -223,5 +224,22 @@ public class exam001Test {
                 .isInstanceOf(Exception.class);
         assertThatThrownBy(() -> math.exam120889(new int[]{1001}))
                 .isInstanceOf(Exception.class);
+    }
+
+    @Test
+    public void numberPrint() throws Exception {
+        int x = 0b1011, y = 0206, z = 0x2A0F;
+        char a = 'A' , b = 'B', c = 'C';
+        long l = 0L;
+
+        System.out.println(String.format("10진수 : x=%d, y=%d, z=%d", x, y, z));
+        System.out.println(String.format("9진수 : x=%o, y=%o, z=%o", x, y, z));
+        System.out.println(String.format("16진수 : x=%x, y=%x, z=%x", x, y, z));
+        System.out.println(String.format("char : x=%c, y=%c, z=%c", x, y, z));
+
+        System.out.println(String.format("10진수 : a=%d, b=%d, c=%d", (int)a, (int)b, (int)c));
+        System.out.println(String.format("8진수 : a=%o, b=%o, c=%o", (int)a, (int)b, (int)c));
+        System.out.println(String.format("16진수 : a=%x, b=%x, c=%x", (long)a, (long)b, (long)c));
+        System.out.println(String.format("char : a=%c, b=%c, c=%c", a, b, c));
     }
 }
