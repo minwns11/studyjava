@@ -406,6 +406,10 @@ public class Main {
         for (int i = 0; i < students.length; i++) {
             for ( int j = i; j <students.length; j++) {
                 if ( students[i].getScore() < students[j].getScore() ) {
+                    Student tempstudent = students[i];
+                    students[i] = students[j];
+                    students[j] = tempstudent;
+                    /**
                     String tempname = students[i].getName();
                     int tempScore = students[i].getScore();
 
@@ -414,6 +418,7 @@ public class Main {
 
                     students[j].setName( tempname );
                     students[j].setScore( tempScore );
+                     **/
                 }
             }
         }
