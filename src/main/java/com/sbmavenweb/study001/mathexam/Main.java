@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         //Ex1234();
         try {
-            Ex3015();
+            Ex3109();
         } catch (Exception e) {
             System.out.println(String.format("에러임 : %s", e.getMessage()));
         }
@@ -386,6 +386,7 @@ public class Main {
         sc.close();
 
     }
+
     // 함수로 거듭 제곱 리턴하기
     public static void Ex3015() {
         Scanner sc = new Scanner(System.in);
@@ -427,6 +428,29 @@ public class Main {
             System.out.println(students[i].getName());
         }
         sc.close();
+
+    }
+
+    // 정올 참여 학생 리스트 만들기 2
+    public static void Ex3109() throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if (n < 10 || n > 20000) {
+            throw new Exception(String.format("n(%d)의 값은 10이상 20000이하 입니다.."));
+        }
+        StudentList[] studentsList = new StudentList[n];
+        for (int i=0;i<n;i++) {
+            String code = sc.next();
+
+            if (code.equals(i)) {
+
+            }
+            int num = sc.nextInt();
+            String name = sc.next();
+            //Arrays.sort(studentsList[i].getNum());
+
+            studentsList[i] = new StudentList(num, name);
+        }
 
     }
 }
